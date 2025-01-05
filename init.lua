@@ -190,9 +190,9 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
--- Keybing to bring up file explorer
+-- Keybind to bring up file explorer
 --
-vim.keymap.set('n', '<leader>ex', vim.cmd.Ex, { desc = 'Open file explorer' })
+vim.keymap.set('n', '<leader>x', vim.cmd.Ex, { desc = 'Open file explorer' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
