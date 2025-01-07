@@ -180,6 +180,10 @@ vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' }
 -- vim.keymap.set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
 -- vim.keymap.set('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
 -- vim.keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
+-- vim.keymap.del('i', '<up>')
+-- vim.keymap.del('i', '<down>')
+-- vim.keymap.dei('i', '<left>')
+-- vim.keymap.del('i', '<right>')
 
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows
@@ -663,6 +667,8 @@ require('lazy').setup({
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         'stylua', -- Used to format Lua code
+        'eslint_d',
+        'prettier',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -680,14 +686,14 @@ require('lazy').setup({
       }
     end,
   },
-  { -- GitHub Copilot
-    'github/copilot.vim',
-    event = 'InsertEnter',
-    config = function()
-      vim.g.copilot_no_tab_map = true
-      vim.api.nvim_set_keymap('i', '<C-J>', 'copilot#Accept("<CR>")', { silent = true, expr = true })
-    end,
-  },
+  -- { -- GitHub Copilot
+  --   'github/copilot.vim',
+  --   event = 'InsertEnter',
+  --   config = function()
+  --     vim.g.copilot_no_tab_map = true
+  --     vim.api.nvim_set_keymap('i', '<%>', 'copilot#Accept("<CR>")', { silent = true, expr = true })
+  --   end,
+  -- },
 
   { -- Autoformat
     'stevearc/conform.nvim',
