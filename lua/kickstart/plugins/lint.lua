@@ -5,6 +5,11 @@ return {
     event = { 'BufReadPre', 'BufNewFile' },
     config = function()
       local lint = require 'lint'
+      lint.linters.eslint_d = {
+        cmd = 'eslint_d',
+        args = { '--stdin', '--stdin-filename', '%filepath', '--fix' },
+        stdin = true,
+      }
       lint.linters_by_ft = {
         javascript = { 'eslint_d' },
         typescript = { 'eslint_d' },

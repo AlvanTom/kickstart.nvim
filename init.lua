@@ -89,6 +89,11 @@ P.S. You can delete this when you're done too. It's your config now! :)
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
+--
+-- greatest remap ever
+vim.keymap.set('x', '<leader>p', [["_dP]])
+
+vim.keymap.set({ 'n', 'v' }, '<leader>d', '"_d')
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = false
@@ -160,7 +165,11 @@ vim.opt.scrolloff = 10
 -- add relative ln
 vim.g.netrw_bufsettings = 'noma nomod nu rnu nobl nowrap ro'
 
--- [[ Basic Keymaps ]]
+-- Set default indenting to two spaces
+vim.opt.shiftwidth = 4
+vim.opt.tabstop = 2
+vim.opt.expandtab = true
+
 --  See `:help vim.keymap.set()`
 
 -- Clear highlights on search when pressing <Esc> in normal mode
@@ -629,7 +638,7 @@ require('lazy').setup({
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
         -- clangd = {},
-        -- gopls = {},
+        gopls = {},
         -- pyright = {},
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
@@ -932,7 +941,7 @@ require('lazy').setup({
     main = 'nvim-treesitter.configs', -- Sets main module to use for opts
     -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
     opts = {
-      ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' },
+      ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc', 'go' },
       -- Autoinstall languages that are not installed
       auto_install = true,
       highlight = {
